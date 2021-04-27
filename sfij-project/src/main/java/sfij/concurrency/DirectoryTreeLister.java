@@ -1,4 +1,4 @@
-package sfij.concrrency;
+package sfij.concurrency;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -52,10 +52,11 @@ public class DirectoryTreeLister {
         } else {
             System.out.println("Starting search of " + directoryName);
 
-            // TODO: Refactor this code into a method that submits
-            // TODO: a task to an Executor
+            // TODO: Change this code to submit a task to your Executor
             List<Path> thisResult = listTree(path)
                     .collect(Collectors.toList());
+
+            // TODO: Store the resulting Future in a Map
             allResults.put(directoryName, thisResult);
         }
     }
@@ -73,6 +74,9 @@ public class DirectoryTreeLister {
         }
     }
 
+    // TODO: enhance this method so that it will list all searches, both those that
+    //       have completed and those that are still in progress, providing output that
+    //       distinguishes between them.
     // List all the search operations that have completed so far.
     private void showAllListings() {
         System.out.println("Here is a list of all completed searches:");
